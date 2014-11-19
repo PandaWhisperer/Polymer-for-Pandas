@@ -1,12 +1,12 @@
 var SLIDE_CONFIG = {
   // Slide settings
   settings: {
-    title: 'Polymer and the Future of Web Development',
+    title: 'Polymer for Pandas',
     // subtitle: 'A guide to Enlightenment',
-    eventInfo: {
-     title: 'SoCal Code Camp',
-     date: 'Nov 15-16, 2014'
-    },
+    // eventInfo: {
+    //  title: 'SoCal Code Camp',
+    //  date: 'Nov 15-16, 2014'
+    // },
     useBuilds: true, // Default: true. False will turn off slide animation builds.
     usePrettify: true, // Default: true
     enableSlideAreas: true, // Default: true. False turns off the click areas on either slide of the slides.
