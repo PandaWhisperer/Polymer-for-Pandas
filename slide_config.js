@@ -1,7 +1,7 @@
 var SLIDE_CONFIG = {
   // Slide settings
   settings: {
-    title: 'Polymer for Pandas',
+    title: 'Polymer <s>for</s> with Pandas',
     // subtitle: 'A guide to Enlightenment',
     // eventInfo: {
     //  title: 'SoCal Code Camp',
