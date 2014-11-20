@@ -10,7 +10,7 @@ slide.logoslide.nobackground
     span
       img(src='images/pandastrike-logo-text.jpg')
 
-slide.title-slide.segue.nobackground
+slide.title-slide.segue.nobackground.fill.panda-attack
   aside.gdbar
     img(src='images/pandastrike-logo-256.png')
   // The content of this hgroup is replaced programmatically through the slide_config.json.
@@ -27,21 +27,21 @@ slide
     h2 Outline
   article
     :markdown
-      * MVC vs. Component-based Design
-      * Fundamentals of Web Components
-      * Introduction to Polymer
-      * [Case Study: Glideroom]
+      * Why Web Components?
+      * Why Polymer?
+      * Polymer HOWTO
+      * Case study: Glideroom
 
-slide.fill(style="background-image: url('assets/Kung_Fu_Panda.jpg'); background-size: 80%; background-position: 355px 150px;")
+slide.fill.kung-fu-panda
   hgroup
-    h2 About Me
+    h2 About Me – I'm a Panda
   article
     :markdown
       * Started coding in high school (Turbo Pascal 6.0)
       * Professional developer since 2008
       * 2008-2010: Java / Spring
       * 2010-2013: Ruby / Rails
-      * 2013-????: Node / CoffeeScript
+      * since 2013: Node / CoffeeScript
       * Joined Panda Strike in 2014
 
 slide.segue.dark.quote.nobackground
@@ -58,35 +58,65 @@ slide.segue.dark.quote.nobackground
 
 slide
   hgroup
-    h2 1993: CGI 
-    h3 "Dynamic" web sites are basically Perl scripts
-  article.centered
-    p(style="margin-bottom: 20px") No, not THIS kind of CGI
-    img(src="assets/matrix-bullets.jpg")
+    h2 1995: First release of JavaScript
+  article.flexbox.vcenter
+    img(src="assets/Netscape_2.0_splash.png" style="float: left; padding-right: 3rem")
 
 slide
   hgroup
-    h2 1995: PHP and JavaScript are released
     h3 Wild, Wild West in Frontend-Land
   article.flexbox.vcenter
-    img.reflect(src="assets/PHP-logo.svg.png" width="400")
-  aside.note
-    ul
-      li It's a time of lawlessness and folly
-      li Spaghetti code abounds
+    img(src="assets/panda_ride.jpg")
+
+slide
+  hgroup
+    h3 A time of lawlessness and folly
+  article.flexbox.vcenter
+    img(src="assets/panda_fake.jpg")
+    p "These are not the Pandas you are looking for..."
+
+slide
+  hgroup
+    h3 Spaghetti code and one-off solutions abound
+  article.flexbox.vcenter
+    img(src="assets/panda_fail.jpg", width="600")
+
+slide
+  hgroup
+    h3 The wheel is being re-invented again and again
+  article.flexbox.vcenter
+    img(src="assets/panda_facepalm.jpg")
 
 slide
   hgroup
     h2 2006: jQuery brings some sanity
-    h3 A new Sheriff in Town
+    h3 A New Hope
   article.flexbox.vcenter
     img.reflect(src="assets/jQuery.png")
-  aside.note
-    ul
-      li A new paradigm
-      li The rise of the "jQuery Developer"
-      li Plugins are awesome
-      li Unfortunately, no encapsulation -> plugin hell!
+
+slide
+  hgroup
+    h2 A new paradigm: everything is a jQuery
+  article.flexbox.vcenter
+    img(src="assets/panda_hooray.jpg")
+
+slide
+  hgroup
+    h2 The rise of the "jQuery Developer"
+  article.flexbox.vcenter
+    img(src="assets/panda_cubs.jpg")
+
+slide
+  hgroup
+    h2 Plugins are awesome
+  article.flexbox.vcenter
+    img(src="assets/panda_tricycle.jpg", width="400")
+
+slide
+  hgroup
+    h2 Unfortunately, no encapsulation &rArr; plugin hell!
+  article.flexbox.vcenter
+    img(src="assets/panda_furball.jpg", width="600")
 
 slide
   hgroup
@@ -115,6 +145,7 @@ slide
       li Rails = MVC
       li Rails = GOOD
       li Therefore, MVC = GOOD?
+
     p.centered "What's good for the server is good for the browser"
 
 slide
@@ -123,7 +154,7 @@ slide
   article.larger.flexbox.vleft
     ul
       li "What's good for the browser is good for the server"
-      li &nbsp; => Node.js
+      li &rArr; Node.js
       li But does the reverse hold true?
       li.bold Not necessarily
 
@@ -134,8 +165,8 @@ slide
     ul
       li In Rails, every request is handled by exactly ONE controller
       li On the frontend, pages are divided into several controllers
-      li Controller hierarchies => entangled code
-      li "Dumb" elements => everything is still a <code>div</code>
+      li Controller hierarchies &rArr; entangled code
+      li "Dumb" elements &rArr; everything is still a <code>div</code>
 
 slide
   hgroup
@@ -143,16 +174,19 @@ slide
   article.larger
     ul
       li HTML already has "smart" elements
-      li Dropdowns
-        select
-          option How much do you like Code Camp?
-          option A little
-          option A lot
-          option OMG it's the best thing EVAR!!!1!
-      li Checkboxes
-        input(type="checkbox")
-      li Radio buttons
-        input(type="radio")
+        ul
+          li Dropdowns
+            select
+              option How much do you like Pandas?
+              option A little
+              option A lot
+              option OMG they're the best thing EVAR!!!1!
+          li Checkboxes
+            input(type="checkbox")
+          li Radio buttons
+            input(type="radio")
+          li Date pickers
+            input(type="date")
       li All of these provide:
         ul
           li User Interface
@@ -193,17 +227,20 @@ slide
 slide
   hgroup
     h2 Custom Elements
-  article.larger.flexbox.vleft
+  article.flexbox.vleft
     ul
       li Make your own HTML tags!
       li Allows developers to register new elements with the parser
-      li Optional second argument specifies prototype
+      li Custom element names MUST include a hyphen (-)
 
       pre.prettyprint(data-lang="javascript").
-        // custom element names MUST include a hyphen (-)
-        var MyAwesomeTag = document.registerElement("my-awesome-tag");
-        // add it to the DOM
-        document.body.appendChild(new MyAwesomeTag());
+        // create prototype
+        var proto = Object.create(HTMLElement.prototype);
+        proto.createdCallback = function() {
+          this.textContent = "I'm a custom element!"
+        };
+        // register element in the DOM
+        <b>document.registerElement("my-element", { prototype: proto });</b>
 
     h3 Result
     iframe#example0(data-src="examples/0/index.html" style="height: 70px")
@@ -211,30 +248,31 @@ slide
 slide
   hgroup
     h2 Shadow DOM
-  article.larger.flexbox.vleft
+  article.flexbox.vleft
     ul
       li Basically a "mini-DOM" for custom elements
-      li Can be attached to ANY element
+      li Can be attached to ANY element (not just custom ones)
+      li Can be manipulated just like the regular DOM
       li Provides separation and encapsulation
-      li All element IDs, stylesheets, and JavaScript is scoped within
+      li All element IDs, stylesheets, and scripts are scoped within
       li No more leaking style classes
 
     pre.prettyprint(data-lang="javascript").
-      // Attach a Shadow DOM to &lt;my-awesome-tag>
-      var element = document.querySelector('my-awesome-tag');
-      var shadowRoot = element.createShadowRoot();
+      // Attach a Shadow DOM to &lt;my-element>
+      var element = document.querySelector('my-element');
+      var shadowRoot = <b>element.createShadowRoot();</b>
 
 slide
   hgroup
     h2 HTML Imports
-  article.larger.flexbox.vleft
+  article.flexbox.vleft
     ul
-      li Import another HTML document into your HTML document (yo dawg...)
+      li Import another HTML document into your HTML document
       li A way to load your custom elements
 
       pre.prettyprint(data-lang="html").
-        &lt;!-- imports my-awesome-tag.html into the DOM -->
-        &lt;link rel="import" href="my-awesome-tag.html">
+        &lt;!-- imports my-element.html into the DOM -->
+        <b>&lt;link rel="import" href="my-element.html"></b>
 
         &lt;script type="text/javascript">
           // contents of the import can be accessed like this
@@ -259,7 +297,11 @@ slide
       li Declarative event mapping
       li Declarative layout using attributes
 
-  aside.note
+
+slide
+  hgroup
+    h2 You can see where this is going...
+  article.flexbox.vcenter
     img(src="assets/declare_all_the_things.jpg")
 
 slide
@@ -267,7 +309,7 @@ slide
     h2  But wait, there's more!
   article.flexbox.vleft.larger
     ul
-      li Polyfills for old browsers
+      li Polyfills for old browsers – <code>webcomponents.js</code>
       li Component library
       li UI designer
 
@@ -284,11 +326,12 @@ slide
       li <code>noscript</code> attribute lets us define elements without JavaScript
 
     pre.prettyprint(data-lang="html").
-      &lt;!-- import Polymer -->
+      &lt;!-- import Polymer: this gives us &lt;polymer-element> -->
       &lt;link rel="import" href="polymer/polymer.html">
       &lt;!-- define custom element -->
       &lt;polymer-element name="my-element" noscript>
         &lt;template>
+          &lt;!-- this will go in the Shadow DOM -->
           &lt;h2>Hi, I'm a custom element!&lt;/h2>
         &lt;/template>
       &lt;/polymer-element>

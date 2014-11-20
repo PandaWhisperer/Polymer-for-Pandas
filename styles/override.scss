@@ -1,3 +1,4 @@
+@import "variables";
 
 slides > slide {
   font-size: 30px;
@@ -41,8 +42,34 @@ a.plain {
   }
 }
 
+.title-slide, slide.fill {
+
+  hgroup, article {
+    h1, h2, h3, p {
+      color: $gray-1;
+    }
+  }
+
+}
+
+select, input {
+  font-size: 20px;
+  margin-left: 15px;
+}
+
 article.smaller {
   ul, p {
     font-size: 25px;
   }
 }
+
+slide.panda-attack {
+  background-image: url('../assets/Panda_attack.jpg');
+}
+
+slide.kung-fu-panda {
+  background-image: url('../assets/Kung_Fu_Panda.jpg');
+  background-size: 80%;
+  background-position: 355px 150px;
+}
+
