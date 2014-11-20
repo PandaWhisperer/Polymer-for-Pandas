@@ -120,53 +120,9 @@ slide
 
 slide
   hgroup
-    h2 2010: MVC frameworks hit the scene
+    h2 There must be some way out of here...
   article.flexbox.vcenter
-    img(src="assets/BackboneJS_logo.png" width="600")
-    img(src="assets/Ember.js-logo-and-mascot.png" width="200")
-    img(src="assets/AngularJS.png")
-
-slide
-  hgroup
-    h2 Why MVC?
-  article.larger.flexbox.vleft
-    ul
-      li A way to structure code
-      li Set of Best Practices
-      li No more "where does this code go?"
-      li Common denominator
-
-slide
-  hgroup
-    h2 Why MVC in the browser?
-  article.larger.flexbox.vleft
-    ul
-      li Basically: Rails was ultra-successful
-      li Rails = MVC
-      li Rails = GOOD
-      li Therefore, MVC = GOOD?
-
-    p.centered "What's good for the server is good for the browser"
-
-slide
-  hgroup
-    h2 What's good for the server is good for the browser?
-  article.larger.flexbox.vleft
-    ul
-      li "What's good for the browser is good for the server"
-      li &rArr; Node.js
-      li But does the reverse hold true?
-      li.bold Not necessarily
-
-slide
-  hgroup
-    h2 Problems with MVC in the browser
-  article.larger.flexbox.vleft
-    ul
-      li In Rails, every request is handled by exactly ONE controller
-      li On the frontend, pages are divided into several controllers
-      li Controller hierarchies &rArr; entangled code
-      li "Dumb" elements &rArr; everything is still a <code>div</code>
+    img(src="assets/panda_escaping.jpg", width="700")
 
 slide
   hgroup
@@ -388,13 +344,13 @@ slide
         &lt;template>
           &lt;h2><b>{{greeting}}</b>&lt;/h2>
         &lt;/template>
-        &lt;script src="my-element.js">&lt;/script>
-      &lt;/polymer-element>
 
-    pre.prettyprint(data-lang="javascript").
-      Polymer("my-element", {
-        <b>greeting: "Hi, I'm a custom element!"</b>
-      });
+        &lt;script type="text/javascript">
+          Polymer("my-element", {
+            <b>greeting: "Hi, I'm a custom element!"</b>
+          });
+        &lt;/script>
+      &lt;/polymer-element>
 
     h3 Result
     iframe#example2(data-src="examples/2/index.html" style="height: 70px")
@@ -404,6 +360,29 @@ slide
       ul
         li Use web console to manipulate the <code>greeting</code> attribute
         li Mention that bindings are TWO-WAY (for elements that support it)
+
+slide
+  hgroup
+    h2 Custom Attributes
+  article
+    pre.prettyprint(data-lang="html").
+      &lt;polymer-element name="my-element" <b>attributes="greeting"</b>>
+        &lt;template>
+          &lt;h2>{{greeting}}&lt;/h2>
+        &lt;/template>
+        &lt;script src="my-element.js">&lt;/script>
+      &lt;/polymer-element>
+
+    pre.prettyprint(data-lang="javascript").
+      Polymer("my-element", {
+        // this will be the default value for greeting
+        greeting: "Hi, I'm a custom element!"
+      });
+
+    pre.prettyprint(data-lang="html").
+      &lt;my-element greeting="Hello Pandas">&lt;/my-element>
+
+    iframe#example2(data-src="examples/2/index2.html" style="height: 70px")
 
 slide
   hgroup
@@ -490,7 +469,7 @@ slide
    ul
      li Video conferencing in your browser
      li Built on WebRTC
-     li NO registration necessary
+     li No registration necessary
      li Get a room with a single click
      li We call it: "Hangouts without the Hangups"
 
