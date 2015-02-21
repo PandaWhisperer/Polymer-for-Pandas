@@ -1,11 +1,11 @@
 var SLIDE_CONFIG = {
   // Slide settings
   settings: {
-    title: 'Polymer and the Future of Web Development',
+    title: 'Polymer <s>for</s> with Pandas',
     // subtitle: 'A guide to Enlightenment',
     eventInfo: {
-     title: 'SoCal Code Camp',
-     date: 'Nov 15-16, 2014'
+     title: 'SCALE 13x',
+     date: 'Feb 22, 2015'
     },
     useBuilds: true, // Default: true. False will turn off slide animation builds.
     usePrettify: true, // Default: true
